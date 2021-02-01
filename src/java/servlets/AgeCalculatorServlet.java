@@ -29,7 +29,7 @@ public class AgeCalculatorServlet extends HttpServlet {
         String age = request.getParameter("age");
         request.setAttribute("age", age);
 
-        if (age == null || age.equals("")) {
+        if (age.equals("")) {
             
             request.setAttribute("age", "You must give your current age");
             getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")

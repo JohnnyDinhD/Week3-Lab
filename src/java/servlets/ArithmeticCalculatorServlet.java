@@ -26,18 +26,31 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
         
         String secondnum = request.getParameter("secondnum");
         request.setAttribute("secondnum", secondnum);
-             
-        if (firstnum == null || firstnum.equals("") || secondnum == null || secondnum.equals("")) {
-            request.setAttribute("nocalc", "---");
-            getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
-                    .forward(request, response);
-        }
         
+        //String nocalcstring = request.getParameter("nocalcstring");
+        //request.setAttribute("nocalcstring", "---");
+        
+        //Invalid Message         
         if (firstnum == null || firstnum.equals("") || secondnum == null || secondnum.equals("")) {
             request.setAttribute("invalidmsg", "invalid");
             getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
                     .forward(request, response);
             }
+        
+        //Addition Calculation
+        else if (firstnum != null || secondnum != null) {
+            request.setAttribute("add", Integer.parseInt(firstnum) + Integer.parseInt(secondnum));
+            getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
+                    .forward(request, response);
+        }
+   
+        //Subtraction Calculation
+        if (firstnum.equals("add") || secondnum.equals("add")) {
+            request.setAttribute("minus", Integer.parseInt(firstnum) - Integer.parseInt(secondnum));
+            getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
+                    .forward(request, response);
+        }
+
         
         return;
         }
