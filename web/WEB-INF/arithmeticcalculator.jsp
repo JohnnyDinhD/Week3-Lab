@@ -21,8 +21,8 @@
             <input type="submit" name="multiply" value="*">
             <input type="submit" name="modulus" value="%"><br>
 
-            <br>Result: ${invalidmsg}${add}${minus}
-            <br><a href="arithmetic">Arithmetic Calculator</a>
+            <br>Result: ${message}
+            <br><a href="age">Age Calculator</a>
 
         </form> 
     </body>
